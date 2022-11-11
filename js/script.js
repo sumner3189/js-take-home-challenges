@@ -1,4 +1,3 @@
-
 //Day 2
 // const currentDate = new Date();
 // const getCurrentDay = currentDate.getDay();
@@ -36,7 +35,7 @@
 // const result = colorOne === 'blue'&& colorTwo==="grey"?"You chose my fav color": "try again"
 // console.log("🚀 ~ file: script.js ~ line 37 ~ result", result)
 
-// const birthday = new Date("August 29, 1975 23:15:30"); 
+// const birthday = new Date("August 29, 1975 23:15:30");
 // const dayOfweek = birthday.getDay()
 // console.log("🚀 ~ file: script.js ~ line 41 ~ dayOfweek", dayOfweek)
 // switch (dayOfweek) {
@@ -77,7 +76,7 @@
 //   return "this is a return" + str
 // }
 // const password = (str) =>{
- 
+
 //   const lengthOfPassword = str.length
 //   const onlyLetters = /^[a-zA-Z]+$/;
 //   const firstLetterOfString = str.charAt(0)
@@ -86,7 +85,7 @@
 //     //do something
 //         if (onlyLetters.test(firstLetterOfString)) {
 //           alert("this is a valid password")
-    
+
 //         } else {
 //   alert("The first character of the password needs to be a letter")
 //         }
@@ -98,7 +97,7 @@
 // greater than or equal to 6 AND less than or equal 20
 //must contain 6 -20 length of string
 //must contain letter as first character in the password
-// alert the user of password validation 
+// alert the user of password validation
 
 // password("fadsjkfdsa;ljk")
 // const password => ("password") ("password,5 to 10 character")'? password accected': 'incorrect password';
@@ -116,17 +115,17 @@
 // ('/', 49, 7) --> 7
 
 // const math = (operation, value1, value2) => {
-  
+
 //   if ( "+" === operation) {
-//     return value1 + value2 
+//     return value1 + value2
 //   }
 //   esle if "-" === operation {
-//     return value1 - value2 
+//     return value1 - value2
 //   }
 //   esle if( "*" === operation ){
 //     return value1 * value2
 //   }
-//   esle if ("/" === operation) 
+//   esle if ("/" === operation)
 //   return value1 / value2
 
 //   console.log("🚀 ~ file: script.js ~ line 132 ~ math ~ return value1 / value2", return value1 / value2)
@@ -147,9 +146,69 @@
 // Fetch API
 // JSON
 
+// async function getPokemon(){
+//   const getData = await fetch ("https://pokeapi.co/api/v2/pokemon/tangrowth")
+//   const myPokemon = await getData.json()
+//   alert(myPokemon.name)
+// }
+// getPokemon()
+
+// const functio1n = () => {
+//   //do something
+// };
+
+// const printWord = (word)=>{
+
+//   console.log(word)
+// }
+
+// printWord("Hellow world")
+// printWord("Somethingthing")
+
+// const printWelcomeFirstNameLastName = (firstName,lastName) => {
+//   console.log(`Welcome, ${firstName} ${lastName}`);
+// };
+// printWelcomeFirstNameLastName("Doni", "Summers");
+
+// "welcome, doni last name"
+
+// if(condition){
+// //do something
+// }else{
+//   //do something else
+// }
+
+// const firstAndlastName = (FirstName,LastName) =>{
+//   if(FirstName==="don"   LastName== "user"){console.log(`Welcome, ${FirstName} ${LastName}`)}
+//   else{console.log("invalid user")}
+//   }
+// firstAndlastName("vic", "sauceda")
+
+// const pathdirection = (direction) =>{
+//   If(direction==="Forward"){console.log("keep in this path")}
+//   else{console.log("your going the wrong way")}
+// }
+
+// Building on your day 5 take home challenge:
+// Use javascript to create and append the following to your HTML:
+// Create a button with text that says: Click me to see me
+// Now add the following functionality:
+// If you haven't already, create a function that will make the API request
+// Add an event listener to your button
+// When your button is clicked, it should make the API request and append the pokemon name to the DOM using an h1. It should also render an image using Picsum. You will have to create a new html element and append it to the DOM
+
 async function getPokemon(){
   const getData = await fetch ("https://pokeapi.co/api/v2/pokemon/tangrowth")
   const myPokemon = await getData.json()
   alert(myPokemon.name)
-} 
-getPokemon()
+  const Pokemon = document.createElement("h1")
+  Pokemon.innerHTML = myPokemon.name
+  const image =document.createElement("img")
+  image.src = "https://picsum.photos/id/1020/600/400";
+}
+getPokemon() 
+
+const para = document.createElement("button");
+para.innerHTML=`click me`
+document.body.appendChild(para)
+document.getElementsByTagName("button").addEventListener("click", getPokemon());
