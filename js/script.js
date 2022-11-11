@@ -197,18 +197,21 @@
 // Add an event listener to your button
 // When your button is clicked, it should make the API request and append the pokemon name to the DOM using an h1. It should also render an image using Picsum. You will have to create a new html element and append it to the DOM
 
-async function getPokemon(){
-  const getData = await fetch ("https://pokeapi.co/api/v2/pokemon/tangrowth")
-  const myPokemon = await getData.json()
-  alert(myPokemon.name)
-  const Pokemon = document.createElement("h1")
-  Pokemon.innerHTML = myPokemon.name
-  const image =document.createElement("img")
+async function getPokemon() {
+  const getData = await fetch("https://pokeapi.co/api/v2/pokemon/tangrowth");
+  const myPokemon = await getData.json();
+  alert(myPokemon.name);
+  const Pokemon = document.createElement("h1");
+  Pokemon.innerHTML = myPokemon.name;
+  const image = document.createElement("img");
   image.src = "https://picsum.photos/id/1020/600/400";
+  document.body.appendChild(Pokemon);
+  document.body.appendChild(image);
 }
-getPokemon() 
+// getPokemon();
 
 const para = document.createElement("button");
-para.innerHTML=`click me`
-document.body.appendChild(para)
-document.getElementsByTagName("button").addEventListener("click", getPokemon());
+para.innerHTML = `click me`;
+document.body.appendChild(para);
+// document.getElementByTagName("button").addEventListener("click", getPokemon());
+document.getElementById("test").addEventListener("click", () => getPokemon());
